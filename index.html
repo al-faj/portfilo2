@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD ALFAJ HUSSAIN — Portfolio</title>
+  <style>
+    :root{
+      --bg:#000; --card:#0f0f10; --muted:#bdbdbd; --accent:#e50914;
+      --glass: rgba(255,255,255,0.03);
+      --maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, Arial, sans-serif;background:var(--bg);color:#fff;}
+    .container{max-width:var(--maxw);margin:0 auto;padding:120px 20px 60px}
+
+    /* Header */
+    header{position:fixed;top:0;left:0;right:0;z-index:999;background:linear-gradient(180deg,rgba(0,0,0,0.7),transparent);backdrop-filter: blur(4px);}
+    .nav{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:14px 20px}
+    .logo{font-weight:800;color:var(--accent);letter-spacing:1px;font-size:20px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:14px}
+    .btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;font-weight:600}
+    .hamburger{display:none;cursor:pointer}
+
+    /* Hero */
+    .hero{display:flex;align-items:center;gap:40px;min-height:60vh}
+    .hero-left{flex:1}
+    .hero-right{flex:1;display:flex;justify-content:center}
+    h1{font-size:38px;margin:0 0 12px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+    .cta{display:flex;gap:12px}
+    .ghost{border:1px solid rgba(255,255,255,0.08);padding:8px 12px;border-radius:6px;color:var(--muted);text-decoration:none}
+
+    /* Cards grid */
+    .section{margin-top:36px}
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .section-title h2{margin:0;font-size:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .card{background:var(--card);padding:16px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 18px rgba(0,0,0,0.6);transition:transform .22s, box-shadow .22s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(0,0,0,0.7)}
+    .card h3{color:var(--accent);margin:0 0 8px}
+    .muted{color:var(--muted);font-size:13px}
+
+    /* Projects bigger cards */
+    .projects .card{min-height:120px}
+    .project-meta{font-size:13px;color:var(--muted);margin-top:8px}
+
+    /* Footer */
+    footer{padding:30px 20px;text-align:center;color:var(--muted);margin-top:40px}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;padding:20px}
+    .modal .inner{background:#0b0b0b;padding:18px;border-radius:8px;max-width:800px;width:100%}
+    .close{float:right;color:var(--muted);cursor:pointer}
+
+    /* Responsive */
+    @media(max-width:880px){
+      .hero{flex-direction:column;padding-top:60px}
+      .hamburger{display:block}
+      .nav-links{display:none}
+    }
+
+    /* Small animations */
+    .fade-up{transform:translateY(10px);opacity:0;transition:all .6s ease-out}
+    .fade-up.in{transform:none;opacity:1}
+
+    /* Resume link small */
+    .resume-link{font-size:13px;color:var(--muted);text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">ALFAJ</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#contact">Hire / Intern</a>
+      </div>
+      <div class="hamburger" id="hamb">☰</div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left fade-up" id="heroLeft">
+        <h1>Hi, I'm <span style="color:var(--accent)">MD ALFAJ HUSSAIN</span></h1>
+        <p class="lead">IT Student | Machine Learning & Cloud Computing. Oracle OCI & Google Gemini certified. Building scalable apps and ML pipelines.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">See Projects</a>
+          <a class="ghost" href="mailto:mdalfajhussain062@gmail.com">Contact Me</a>
+          <a class="resume-link" href="/resume.pdf" target="_blank">Download Resume</a>
+        </div>
+      </div>
+      <div class="hero-right fade-up" id="heroRight">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80&auto=format&fit=crop" alt="hero" style="width:320px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)">
+      </div>
+    </section>
+
+    <section id="about" class="section fade-up">
+      <div class="section-title"><h2>About Me</h2></div>
+      <p class="muted">Information Technology student with strong foundations in Machine Learning, Cloud Computing, and Full-Stack Development. Certified in Oracle Cloud Infrastructure and Google Gemini. Passionate about building scalable applications and intelligent systems.</p>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="section-title"><h2>Skills</h2></div>
+      <div class="grid">
+        <div class="card"><h3>Languages</h3><div class="muted">Python, Java, C++, JavaScript, SQL</div></div>
+        <div class="card"><h3>ML & AI</h3><div class="muted">Scikit-Learn, NumPy, Pandas, Matplotlib, Model Evaluation, Feature Engineering</div></div>
+        <div class="card"><h3>Cloud & DevOps</h3><div class="muted">AWS, GCP, Docker, Serverless, Cloud Deployment</div></div>
+        <div class="card"><h3>Web Dev</h3><div class="muted">HTML5, CSS3, JavaScript, Responsive Design, REST APIs</div></div>
+        <div class="card"><h3>Tools</h3><div class="muted">Git, GitHub, VS Code, Jupyter Notebook, Postman, Linux, Anaconda</div></div>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects">
+      <div class="section-title"><h2>Projects</h2></div>
+      <div class="grid">
+        <div class="card" onclick="openModal('student')"><h3>Student Performance Prediction</h3><div class="muted">Python • Scikit-Learn • 85% accuracy</div></div>
+        <div class="card" onclick="openModal('amazon')"><h3>Amazon Clone Frontend</h3><div class="muted">HTML • CSS • JavaScript • Responsive UI</div></div>
+        <div class="card" onclick="openModal('dsa')"><h3>DSA Problem Repository</h3><div class="muted">100+ problems • Python & Java</div></div>
+        <div class="card" onclick="openModal('webapps')"><h3>Web Applications</h3><div class="muted">Weather App • Calculator • CRUD System</div></div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="section-title"><h2>Education</h2></div>
+      <div class="grid">
+        <div class="card"><h3>Diploma in Computer Science Engineering</h3><div class="muted">Al Kabir Institute of Technology — 2024 — 68%</div></div>
+        <div class="card"><h3>Bachelor of Technology in Information Technology</h3><div class="muted">Haldia Institute of Technology — CGPA: 7.6/10 — Expected: May 2027</div></div>
+      </div>
+    </section>
+
+    <section id="certs" class="section">
+      <div class="section-title"><h2>Certifications</h2></div>
+      <div class="grid">
+        <div class="card"><h3>Oracle OCI AI Foundations 2025</h3><div class="muted">Cloud Computing, AI, OCI</div></div>
+        <div class="card"><h3>Google Gemini Certified</h3><div class="muted">Generative AI, LLMs</div></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-title"><h2>Contact</h2></div>
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px">
+        <div class="card">
+          <h3>Get in touch</h3>
+          <p class="muted">Email: <a href="mailto:mdalfajhussain062@gmail.com" style="color:var(--accent);text-decoration:none">mdalfajhussain062@gmail.com</a></p>
+          <p class="muted">Phone: +91 7004494729</p>
+          <p class="muted">LinkedIn: <a href="https://linkedin.com/in/alfaj-hussain-523992281" target="_blank" style="color:var(--accent);text-decoration:none">linkedin.com/in/alfaj-hussain-523992281</a></p>
+          <p class="muted">GitHub: <a href="https://github.com/al-faj" target="_blank" style="color:var(--accent);text-decoration:none">github.com/al-faj</a></p>
+          <div style="margin-top:12px">
+            <a class="btn" href="mailto:mdalfajhussain062@gmail.com?subject=Internship%20Opportunity">Hire / Intern</a>
+            <a class="ghost" href="/resume.pdf" target="_blank">Download Resume</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Quick Message</h3>
+          <form action="mailto:mdalfajhussain062@gmail.com" method="post" enctype="text/plain">
+            <input name="name" placeholder="Your name" style="width:100%;padding:8px;margin-bottom:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff" required>
+            <input name="email" placeholder="Your email" style="width:100%;padding:8px;margin-bottom:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff" required>
+            <textarea name="message" rows="4" placeholder="Message" style="width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff" required></textarea>
+            <div style="margin-top:8px"><button class="btn" type="submit">Send</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 MD ALFAJ HUSSAIN — Built with ❤️ — Deploy: drop index.html to Render / Netlify / Vercel
+    </footer>
+  </main>
+
+  <!-- Project modal -->
+  <div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="inner" id="modalInner">
+      <div class="close" onclick="closeModal(event)">✕</div>
+      <div id="modalContent" style="clear:both"></div>
+    </div>
+  </div>
+
+  <script>
+    // Hamburger toggle
+    document.getElementById('hamb').addEventListener('click', ()=>{
+      const nav = document.getElementById('navLinks');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+      nav.style.flexDirection = 'column';
+      nav.style.background = 'rgba(0,0,0,0.85)';
+      nav.style.position = 'absolute';
+      nav.style.right = '20px';
+      nav.style.top = '60px';
+      nav.style.padding = '10px';
+    });
+
+    // Simple scroll reveal
+    function reveal(){
+      document.querySelectorAll('.fade-up').forEach(el=>{
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 40) el.classList.add('in');
+      })
+    }
+    window.addEventListener('scroll', reveal); reveal();
+
+    // Modal content per project
+    const projects = {
+      student: `
+        <h2>Student Performance Prediction System</h2>
+        <p class='muted'>Python • Scikit-Learn • Data preprocessing • 85% accuracy</p>
+        <p>Built an end-to-end ML pipeline: EDA, missing-value handling, feature engineering, model training (Logistic Regression & Random Forest), cross-validation and evaluation using precision/recall/F1.</p>
+        <p class='muted'>Repo: <a href='https://github.com/al-faj' target='_blank' style='color:var(--accent)'>github.com/al-faj</a></p>
+      `,
+      amazon: `
+        <h2>Amazon Clone Frontend</h2>
+        <p class='muted'>HTML • CSS • JavaScript • Responsive</p>
+        <p>Developed a mobile-first e-commerce interface with dynamic product cards, cart simulation, search, and filtering. Focus on accessible UX and responsive layouts using Flexbox and CSS Grid.</p>
+      `,
+      dsa: `
+        <h2>DSA Problem Repository</h2>
+        <p class='muted'>Python & Java • 100+ problems</p>
+        <p>Organized solutions for arrays, strings, trees, graphs, recursion and dynamic programming. Each solution includes time & space complexity analysis and clear modular code.</p>
+      `,
+      webapps: `
+        <h2>Web Applications Portfolio</h2>
+        <p class='muted'>JavaScript • APIs</p>
+        <p>Includes Calculator (operator precedence), Weather App (OpenWeather API), and CRUD system using localStorage for persistence.</p>
+      `
+    };
+
+    function openModal(key){
+      document.getElementById('modalContent').innerHTML = projects[key] || '<p>No details</p>';
+      const m = document.getElementById('modal');
+      m.style.display = 'flex';
+    }
+    function closeModal(e){
+      if(e.target.id === 'modal' || e.target.classList.contains('close')){
+        document.getElementById('modal').style.display = 'none';
+      }
+    }
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        const id = this.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+  </script>
+</body>
+</html>
